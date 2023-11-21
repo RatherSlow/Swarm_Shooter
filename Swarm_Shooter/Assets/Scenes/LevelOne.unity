@@ -431,6 +431,7 @@ Transform:
   m_Children:
   - {fileID: 1334841809}
   - {fileID: 1899092203}
+  - {fileID: 1338997809}
   m_Father: {fileID: 1290655313}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
@@ -572,6 +573,7 @@ GameObject:
   - component: {fileID: 1290655316}
   - component: {fileID: 1290655315}
   - component: {fileID: 1290655314}
+  - component: {fileID: 1290655317}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -657,6 +659,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 816fefa1-1c8f-4036-aafb-e86e45c31675
     m_ActionName: 'Controls/Aim[/Mouse/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3c6f0d9e-55cf-4f1a-a667-0193ca441935
+    m_ActionName: 'Controls/Shoot[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Controls
@@ -688,6 +694,27 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1290655317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290655312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e321ad300ff79f40bafd262f46b4718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlameBlast: {fileID: 3241499634563894029, guid: fc7c70b5dac29f84bae7eafe2148f10a, type: 3}
+  shootForce: 5
+  timeBetweenShooting: 1
+  reloadTime: 1
+  timeBetweenShots: 1
+  magazineSize: 10
+  allowButtonHold: 1
+  attackPoint: {fileID: 1338997809}
+  allowInvoke: 1
 --- !u!1 &1334841808
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +822,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334841808}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1338997808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1338997809}
+  m_Layer: 0
+  m_Name: attackpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1338997809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338997808}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.17, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 721480649}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1601111409
 GameObject:
   m_ObjectHideFlags: 0
