@@ -20,6 +20,8 @@ public class GunCode : MonoBehaviour
 
     public Transform attackPoint;
 
+    private PlayerControls playerControls;
+
     public bool allowInvoke = true;
 
     private void Awake()
@@ -27,43 +29,100 @@ public class GunCode : MonoBehaviour
         //magazine starts full
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        playerControls = new PlayerControls();
+        playerControls.Controls.Shoot.performed += Shooting =>
+        {
+            shooting = true;
+        };        
+    }
+
+    private void OnEnable()
+    {
+        playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Disable();
     }
 
     private void Update()
     {
-        MyInput();
+        //if (!MenuController.IsGamePaused)
+        //{
+            MyInput();
+        //}
+        
     }
 
     private void MyInput()
     {
         //Allowed to shoot?
-        if (allowButtonHold)
-        {
-            shooting = Input.GetKey(KeyCode.Mouse0);
-        }
-        else
-        {
-            shooting = Input.GetKeyDown(KeyCode.Mouse0);
-        }
+        //if (allowButtonHold)
+        //{
+            //shooting = Input.GetKey(KeyCode.Mouse0);
+        //}
+        //else
+        //{ 
+            //shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        //}
 
+        //Reloading
+        
         //Shooting
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
             bulletsShot = 0;
 
             Shoot();
+            shooting = false;
+        }
+        if (readyToShoot && shooting && !reloading && bulletsLeft <= 0)
+        {
+            Reload();
         }
 
     }
-
+    public void attemptReload()
+    {
+        if (bulletsLeft < magazineSize && !reloading)
+        {
+            Reload();
+        }
+        
+    }
     private void Shoot()
     {
-        readyToShoot = false;
+        readyToShoot = false;        
 
         GameObject currentBullet = Instantiate(FlameBlast, attackPoint.position, attackPoint.rotation);
-        currentBullet.GetComponent<Rigidbody>().AddForce(Vector3.forward * shootForce, ForceMode.Impulse);
+        currentBullet.GetComponent<Rigidbody>().AddForce(transform.forward * shootForce, ForceMode.Impulse);
 
         bulletsLeft--;
         bulletsShot++;
+        Debug.Log(bulletsLeft);
+        if (allowInvoke)
+        {
+            Invoke("ResetShot", timeBetweenShooting);
+            allowInvoke = false;
+        }        
+    }
+
+    private void ResetShot()
+    {
+        readyToShoot = true;
+        allowInvoke = true;
+    }
+
+    private void Reload()
+    {
+        reloading = true;
+        Invoke("ReloadFinished", reloadTime);
+    }
+
+    private void ReloadFinished()
+    {
+        bulletsLeft = magazineSize;
+        reloading = false;
     }
 }

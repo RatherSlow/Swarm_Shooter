@@ -41,3 +41,19 @@ The following packages were updated:
   com.unity.feature.development from version 1.0.1 to 1.0.2
   com.unity.timeline from version 1.6.2 to 1.8.2
   com.unity.visualscripting from version 1.7.6 to 1.8.0
+
+=== Tue Nov 21 22:57:04 2023
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.postprocessing from version 3.2.2 to 3.3.0
+
+=== Tue Nov 21 22:57:04 2023
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.postprocessing@3.3.0
