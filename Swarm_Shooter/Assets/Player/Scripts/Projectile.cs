@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
-{
+{    
     public Rigidbody rb;
     public LayerMask whatIsBees;
 
@@ -12,10 +12,12 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     float maxLifetime;
     bool LifetimeEnd;
+    [SerializeField]
+    float SizeIncrease;
 
     void Update()
     {
-        Destruction();
+        Life();
     }
 
 
@@ -28,12 +30,13 @@ public class Projectile : MonoBehaviour
         }
         return true;
     }
-    public void Destruction()
+    public void Life()
     {
         LifetimeEnd = Lifetime();
         if(LifetimeEnd)
         {
             Destroy(gameObject);
         }
+        transform.localScale = new Vector3(SizeIncrease, SizeIncrease, SizeIncrease);
     }    
 }
