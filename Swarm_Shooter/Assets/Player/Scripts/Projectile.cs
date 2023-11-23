@@ -39,4 +39,5 @@ public class Projectile : MonoBehaviour
         }
         transform.localScale = new Vector3(SizeIncrease, SizeIncrease, SizeIncrease);
     }    
+    //OnTriggerStay or just Ontrigger and damage * Time.deltatime or damage then give effect "On Fire"
 }
