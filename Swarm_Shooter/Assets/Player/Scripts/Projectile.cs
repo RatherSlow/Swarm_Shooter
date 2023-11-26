@@ -10,10 +10,22 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     float tick;
     [SerializeField]
-    float maxLifetime;
+    float maxLifetime = 4f;
     bool LifetimeEnd;
     [SerializeField]
     float SizeIncrease;
+    [SerializeField]
+    float startingsize;
+    [SerializeField]
+    float rawDamage = 10;
+    private Vector3 startSize;
+    private Vector3 scaleChange;
+
+    private void Awake()
+    {
+        startSize = new Vector3(startingsize, startingsize, startingsize);
+        scaleChange = new Vector3(SizeIncrease, SizeIncrease, SizeIncrease);
+    }
 
     void Update()
     {
@@ -37,7 +49,19 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        transform.localScale = new Vector3(SizeIncrease, SizeIncrease, SizeIncrease);
-    }    
+        transform.localScale = startSize + scaleChange * tick;
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.tag == "Enemy")
+        {
+            interact(collider);
+        }
+    }
+    public void interact(Collider collider)
+    {
+        collider.SendMessageUpwards("FireHit", rawDamage, SendMessageOptions.DontRequireReceiver);
+    }
     //OnTriggerStay or just Ontrigger and damage * Time.deltatime or damage then give effect "On Fire"
 }

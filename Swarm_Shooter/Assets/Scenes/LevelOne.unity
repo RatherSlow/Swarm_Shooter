@@ -723,7 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlameBlast: {fileID: 3241499634563894029, guid: fc7c70b5dac29f84bae7eafe2148f10a, type: 3}
-  shootForce: 10
+  shootForce: 5
   timeBetweenShooting: 0.1
   reloadTime: 1.5
   timeBetweenShots: 0
@@ -863,7 +863,7 @@ Transform:
   m_GameObject: {fileID: 1338997808}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.17, z: 1}
+  m_LocalPosition: {x: 0, y: 0.17, z: 1.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

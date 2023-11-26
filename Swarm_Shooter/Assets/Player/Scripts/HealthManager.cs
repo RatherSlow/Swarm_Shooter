@@ -44,6 +44,6 @@ public class HealthManager : MonoBehaviour
     void OnDeath()
     {
         Debug.Log("TODO: GAME OVER - YOU DIED");
-        //GameManager.instance.GameOver();
+        //GameManager.instance.GameOver("Death");
     }
 }
