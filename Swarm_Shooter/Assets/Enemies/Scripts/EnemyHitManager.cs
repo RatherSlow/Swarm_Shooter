@@ -8,6 +8,8 @@ public class EnemyHitManager : MonoBehaviour
     [SerializeField] 
     float maxHitPoints = 10f;
     float hitPoints;
+    [SerializeField]
+    int pointValue = 1;
 
 
     // Start is called before the first frame update
@@ -25,10 +27,12 @@ public class EnemyHitManager : MonoBehaviour
     public void FireHit(float rawDamage)
     {
         hitPoints -= rawDamage;
+        Debug.Log("Was Hit");
 
         if (hitPoints <= 0)
         {
             Destroy(gameObject);
+            GameManager.IncrementScore(pointValue);
         }
     }
 }

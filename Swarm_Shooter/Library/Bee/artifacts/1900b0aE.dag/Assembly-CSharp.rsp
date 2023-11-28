@@ -376,19 +376,14 @@
 -analyzer:"D:/Program Files/Unity/Hub/Editor/2023.1.10f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Enemies/Scripts/EnemyHitManager.cs"
 "Assets/GameManager/GameManager.cs"
+"Assets/GameManager/HighScoreSystem.cs"
 "Assets/GameManager/UIManager.cs"
+"Assets/MenuSystem/MenuController.cs"
 "Assets/Player/Scripts/GunCode.cs"
 "Assets/Player/Scripts/HealthManager.cs"
 "Assets/Player/Scripts/PlayerControls.cs"
 "Assets/Player/Scripts/PlayerMovement.cs"
 "Assets/Player/Scripts/Projectile.cs"
-"Assets/UnityTechnologies/ParticlePack/EffectExamples/Misc Effects/Scripts/SpawnEffect.cs"
-"Assets/UnityTechnologies/ParticlePack/Shared/Ramps/Runtime/RampAsset.cs"
-"Assets/UnityTechnologies/ParticlePack/Shared/Scripts/AdjustTimeScale.cs"
-"Assets/UnityTechnologies/ParticlePack/Shared/Scripts/ProximityActivate.cs"
-"Assets/UnityTechnologies/ParticlePack/Shared/Scripts/SimpleCameraController.cs"
-"Assets/UnityTechnologies/ParticlePack/Shared/Scripts/SimpleCharacterMotor.cs"
-"Assets/UnityTechnologies/ParticlePack/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
 
 /deterministic

@@ -24,13 +24,17 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 playerVelocity;
 
     private PlayerControls playerControls;
-    //private PlayerInput playerInput;
+    private PlayerInput playerInput;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
         playerControls = new PlayerControls();
-        //playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInput>();
+        playerControls.Controls.Quit.performed += Quit =>
+        {
+            Application.Quit();
+        };
     }
 
     private void OnEnable()
@@ -106,5 +110,10 @@ public class PlayerMovement : MonoBehaviour
     public void OnDiviceChange (PlayerInput pi)
     {
         isGamePad = pi.currentControlScheme.Equals("GamePad") ? true : false;
+    }
+    public void QuitGame(PlayerInput pi)
+    {
+        Debug.Log("QUIT GAME");
+        Application.Quit();
     }
 }
