@@ -53,6 +53,10 @@ public class PlayerMovement : MonoBehaviour
         HandleInput();
         HandleMovement();
         HandleRotation();
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
     }
 
     void HandleInput()

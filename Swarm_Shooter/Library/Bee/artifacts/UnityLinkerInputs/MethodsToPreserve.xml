@@ -3,6 +3,10 @@
 		<type fullname="GunCode">
 			<method name="attemptReload"/>
 		</type>
+		<type fullname="MenuController">
+			<method name="QuitGame"/>
+			<method name="ResetGame"/>
+		</type>
 		<type fullname="PlayerMovement">
 			<method name="OnDiviceChange"/>
 		</type>
